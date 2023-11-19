@@ -1,7 +1,14 @@
 import discord
+import os
 from discord.ext import commands
 
-bot = commands.Bot(command_preFix="/")
+intents = discord.Intents.default()
+
+os.environ[
+    "TOKEN"
+] = "MTE3MjEzMTAzNDM5NDAwMTQ3OA.GEoSqE.sWReG2mJIWPAPG83xmsPB5Mthvc6ciE3BOfqXU"
+
+bot = commands.Bot(command_prefix="/", intents=intents)
 
 
 @bot.event
@@ -9,4 +16,6 @@ async def on_ready():
     print("Bot is online!")
 
 
-bot.run("MTE3MjEzMTAzNDM5NDAwMTQ3OA.Gwwtcw.cngLsPNDoGTsnVB0GRBuBk3FdDhtn6RxCDOTJU")
+TOKEN = os.environ["TOKEN"]
+
+bot.run(TOKEN)
